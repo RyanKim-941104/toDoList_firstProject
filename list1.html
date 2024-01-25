@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things to Do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Wake up and Do Stretch</h1>
+    <h2>Put your details and make it stack!</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter your task...">
+    <button id="addButton" onclick="addTask()">Click and Make your Day!</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById('taskInput');
+            var taskList = document.getElementById('taskList');
+
+            if (taskInput.value.trim() !== '') {
+                var newTask = document.createElement('li');
+                newTask.className = 'taskItem';
+                newTask.innerHTML = taskInput.value +
+                    '<button onclick="removeTask(this)">Remove</button>';
+
+                taskList.appendChild(newTask);
+                taskInput.value = '';
+            }
+        }
+
+        function removeTask(button) {
+            var taskList = document.getElementById('taskList');
+            var taskItem = button.parentNode;
+            taskList.removeChild(taskItem);
+        }
+
+        document.getElementById('taskInput').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
+
+
+ <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        #videoContainer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Your page content goes here -->
+
+    <div id="videoContainer">
+        <iframe width="320" height="160" src="https://www.youtube.com/embed/hNCqIgl7Pjc?si=W59xLni2bkvBYrAb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>        
+        <iframe width="320" height="160" src="https://www.youtube.com/embed/e04fRZg70gI?si=5fZZl83CVAbMeT65" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    </div>
+
+<a href="doYourself.html" class="home-button" title="Go home!">
+    <img src="house.png" alt="Home" width="50" height="50">
+
+
+<button id="toggleButton" class="toggle-button">Night</button>
+<script src="script.js"></script>
+</body>
+
+</html>
